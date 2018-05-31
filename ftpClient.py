@@ -8,8 +8,8 @@ import threading
 HOST = '192.168.1.5'
 PORT = 3721
 
-USERNAME = 'chaitya'
-PASSWORD = 'shah'
+USERNAME = ''
+PASSWORD = ''
 
 lock = threading.Lock()
 
@@ -225,7 +225,11 @@ class FTPClient(ftplib.FTP, threading.Thread):
 
 
 t = time.time()
-ftp = FTPClient(HOST, PORT, USERNAME, PASSWORD, './Testing', '.\\testing')
+
+ftp_directory = './Testing'
+save_directory = '.\\testing ' # I am on windows :)
+
+ftp = FTPClient(HOST, PORT, USERNAME, PASSWORD, ftp_directory, save_directory)
 ftp.download()
 
 printr("DONE!!")
